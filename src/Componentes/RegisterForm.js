@@ -26,19 +26,17 @@ export default function RegisterForm(props){
             toastRef.current.show("Las contraseñas deben tener al menos 6 caracteres");
         }else{
             setloading(true);
-            // firebase
-            // .auth()
-            // .createUserWithEmailAndPassword(email,password)
-            // .then((response)=>{
-            //     toastRef.current.show("Se ha creado el usuario correctamente");
-            //     setloading(false);
-            // })
-            // .catch((err)=>{
-            //     setloading(false);
-            //     toastRef.current.show("Ha ocurrido un error o ya este registrado el usuario");
-            // })
-            alert(email,pass);
-            setloading(false);
+             firebase
+             .auth()
+             .createUserWithEmailAndPassword(email,pass)
+             .then((response)=>{
+                 toastRef.current.show("Se ha creado el usuario correctamente");
+                 setloading(false);
+             })
+             .catch((err)=>{
+                 setloading(false);
+                 toastRef.current.show("Ha ocurrido un error o ya este registrado el usuario");
+             })
 
         }
     }
